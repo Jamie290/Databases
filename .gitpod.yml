@@ -1,9 +1,10 @@
 image: gitpod/workspace-mysql
 
-tasks:
-  - init: sudo apt-get update && sudo apt-get install -y php-mysql php-cli && mysql -u root -proot -e 'create database mydb;'
-    command: sleep infinity
-
 ports:
   - port: 3306
     onOpen: ignore
+
+tasks:
+  - init: mysql -u root -proot -e 'create database mydb;'
+    command: >
+      sleep infinity
