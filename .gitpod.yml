@@ -1,0 +1,11 @@
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+  - port: 3306
+    onOpen: ignore
+
+tasks:
+  - init: mysql -u root -proot -e 'create database mydb;'
+    command: >
+      sleep infinity
