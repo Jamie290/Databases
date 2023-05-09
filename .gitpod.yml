@@ -5,6 +5,8 @@ ports:
     onOpen: ignore
 
 tasks:
-  - init: mysql -u root -proot -e 'create database mydb;'
+  - init: >
+      sudo service mysql start &&
+      mysql -u root -proot -e 'create database mydb;'
     command: >
       sleep infinity
