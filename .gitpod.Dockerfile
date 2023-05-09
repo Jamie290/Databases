@@ -2,9 +2,9 @@ FROM gitpod/workspace-mysql
 
 USER gitpod
 
-# Install PHP and necessary extensions
+# Update the package list and install PHP and necessary extensions
 RUN sudo apt-get update && \
-    sudo apt-get install -y php php-mysql php-cli
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y php php-mysql php-cli
 
 # Configure MySQL
 RUN echo "mysql:x:$(id -u):$(id -g):MySQL Server,,,:/nonexistent:/bin/false" | sudo tee -a /etc/passwd && \
